@@ -98,7 +98,23 @@ class BinarySearchTree {
   /** dfsPreOrder(): Traverse the array using pre-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPreOrder() {}
+  dfsPreOrder(current = this.root, arr=[]) {
+    arr.push(current.val)
+    
+    /* function traverseAndPush(current){
+      arr.push(current.val)
+      if(current.left) traverseAndPush(current.left)
+      if(current.right) traverseAndPush(current.right)
+
+    }
+    traverseAndPush(current) */
+    if(current.left) this.dfsPreOrder(current.left, arr)
+    if(current.right) this.dfsPreOrder(current.right, arr)
+    return arr
+    
+
+
+  }
 
   /** dfsInOrder(): Traverse the array using in-order DFS.
    * Return an array of visited nodes. */
